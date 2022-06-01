@@ -36,7 +36,7 @@ class GroupViewController: UITableViewController, UITextFieldDelegate, SwipeTabl
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let newGroup = Group(context: self.context)
         newGroup.name = textField.text
-   
+        groups.append(newGroup)
         saveGroups()
         newGroupTextfield.endEditing(true)
         newGroupTextfield.text = ""
@@ -92,8 +92,10 @@ class GroupViewController: UITableViewController, UITextFieldDelegate, SwipeTabl
     }
     
     func saveGroups() {
-        guard (try? self.context.save()) != nil else {
-            fatalError("Cannot save data")
+        do {
+            try context.save()
+        } catch {
+            print(error)
         }
         tableView.reloadData()
     }

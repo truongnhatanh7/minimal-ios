@@ -54,7 +54,7 @@
         <!--Group View Controller-->
         <scene sceneID="3CV-Jv-X2a">
             <objects>
-                <tableViewController id="pMO-IJ-4un" customClass="GroupViewController" customModule="minimal" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="pMO-IJ-4un" customClass="GroupViewController" customModule="minimal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="neP-XU-hI6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,6 +82,7 @@
                             <outletCollection property="gestureRecognizers" destination="k9n-IQ-w65" appends="YES" id="V7U-JB-N0u"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="0UQ-Wc-Yfv"/>
                     <connections>
                         <outlet property="newGroupTextfield" destination="g5v-Wp-Qum" id="b7t-k2-o9J"/>
                         <outlet property="swipeRecognizer" destination="k9n-IQ-w65" id="Q5D-FG-jnm"/>
@@ -100,9 +101,9 @@
         <!--Task View Controller-->
         <scene sceneID="uiC-3q-DIx">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="ibN-ph-vbW" customClass="TaskViewController" customModule="minimal" sceneMemberID="viewController">
+                <tableViewController id="ibN-ph-vbW" customClass="TaskViewController" customModule="minimal" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mrJ-9c-cnQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <textField key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter new task" textAlignment="natural" minimumFontSize="24" id="IZe-Mq-WhG">
@@ -129,9 +130,15 @@
                     <navigationItem key="navigationItem" id="jZ5-HB-xO7"/>
                     <connections>
                         <outlet property="taskTextField" destination="IZe-Mq-WhG" id="NtQ-O0-0Vv"/>
+                        <segue destination="pMO-IJ-4un" kind="show" identifier="goBackToGroup" id="3YC-7M-jy0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emB-mG-MYy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="6SK-Ed-8oP">
+                    <connections>
+                        <action selector="goBackSwiped:" destination="ibN-ph-vbW" id="dTf-Qb-hoN"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1867" y="84"/>
         </scene>

@@ -20,6 +20,7 @@ class TaskViewController: UITableViewController, UITextFieldDelegate, SwipeTable
         taskTextField.delegate = self
         tableView.separatorColor = .clear
         loadTasks()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
     }
 
@@ -61,6 +62,8 @@ class TaskViewController: UITableViewController, UITextFieldDelegate, SwipeTable
         newTask.parentGroup = selectedGroup!
         tasks.append(newTask)
         saveTasks()
+        textField.endEditing(true)
+        textField.text = ""
         return true
     }
     
@@ -83,6 +86,13 @@ class TaskViewController: UITableViewController, UITextFieldDelegate, SwipeTable
             tableView.reloadData()
         } catch {
             print(error)
+        }
+    }
+
+    @IBAction func goBackSwiped(_ sender: UISwipeGestureRecognizer) {
+        if (sender.direction == .right) {
+            print("swipte")
+            performSegue(withIdentifier: "goBackToGroup", sender: self)
         }
     }
 }
