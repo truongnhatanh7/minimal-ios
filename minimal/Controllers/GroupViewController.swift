@@ -23,14 +23,11 @@ class GroupViewController: UITableViewController, UITextFieldDelegate, SwipeTabl
         loadGroups()
         newGroupTextfield.delegate = self
         newGroupTextfield.placeholder = "Enter new group name"
-        newGroupTextfield.isHidden = true
-
     }
     
     //MARK: - Swipe handling
     @IBAction func swipeAdd(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == .up {
-            newGroupTextfield.isHidden = false
+        if sender.direction == .left {
             newGroupTextfield.becomeFirstResponder()
         }
     }
@@ -39,10 +36,9 @@ class GroupViewController: UITableViewController, UITextFieldDelegate, SwipeTabl
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let newGroup = Group(context: self.context)
         newGroup.name = textField.text
-        groups.append(newGroup)
+   
         saveGroups()
         newGroupTextfield.endEditing(true)
-        newGroupTextfield.isHidden = true
         newGroupTextfield.text = ""
         return true
     }
@@ -101,7 +97,18 @@ class GroupViewController: UITableViewController, UITextFieldDelegate, SwipeTabl
         }
         tableView.reloadData()
     }
+   
+    //MARK: - Handle group pressed
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToTask", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! TaskViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedGroup = groups[indexPath.row]
+        }
+    }
 }
 
 

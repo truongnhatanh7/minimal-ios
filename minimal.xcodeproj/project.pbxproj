@@ -17,6 +17,7 @@
 		55AB9C5A28461BFF001DEF61 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB9C5928461BFF001DEF61 /* GroupViewController.swift */; };
 		55AB9C5D28461FCC001DEF61 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB9C5B28461FCC001DEF61 /* TableViewCell.swift */; };
 		55AB9C5E28461FCC001DEF61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AB9C5C28461FCC001DEF61 /* TableViewCell.xib */; };
+		55AB9C62284722A7001DEF61 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB9C61284722A7001DEF61 /* TaskViewController.swift */; };
 		7FA9498575C00EF2626AE3D1 /* Pods_minimal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10B3393874EA4821F14664B /* Pods_minimal.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		55AB9C5928461BFF001DEF61 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		55AB9C5B28461FCC001DEF61 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		55AB9C5C28461FCC001DEF61 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		55AB9C61284722A7001DEF61 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		A10B3393874EA4821F14664B /* Pods_minimal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_minimal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FDF12D0847E1E898025C52 /* Pods-minimal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-minimal.debug.xcconfig"; path = "Target Support Files/Pods-minimal/Pods-minimal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 			children = (
 				55AB9C5728461618001DEF61 /* MainViewController.swift */,
 				55AB9C5928461BFF001DEF61 /* GroupViewController.swift */,
+				55AB9C61284722A7001DEF61 /* TaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55AB9C3E284611FA001DEF61 /* AppDelegate.swift in Sources */,
+				55AB9C62284722A7001DEF61 /* TaskViewController.swift in Sources */,
 				55AB9C40284611FA001DEF61 /* SceneDelegate.swift in Sources */,
 				55AB9C48284611FA001DEF61 /* minimal.xcdatamodeld in Sources */,
 				55AB9C5D28461FCC001DEF61 /* TableViewCell.swift in Sources */,

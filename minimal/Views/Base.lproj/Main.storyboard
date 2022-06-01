@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
-                        <textField key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="24" id="g5v-Wp-Qum">
+                        <textField key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="24" id="g5v-Wp-Qum">
                             <rect key="frame" x="0.0" y="110.5" width="414" height="38.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
@@ -85,6 +85,7 @@
                     <connections>
                         <outlet property="newGroupTextfield" destination="g5v-Wp-Qum" id="b7t-k2-o9J"/>
                         <outlet property="swipeRecognizer" destination="k9n-IQ-w65" id="Q5D-FG-jnm"/>
+                        <segue destination="ibN-ph-vbW" kind="show" identifier="goToTask" id="IgD-sD-F5a"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzg-2o-937" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -96,14 +97,20 @@
             </objects>
             <point key="canvasLocation" x="961" y="84"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Task View Controller-->
         <scene sceneID="uiC-3q-DIx">
             <objects>
-                <tableViewController id="ibN-ph-vbW" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="ibN-ph-vbW" customClass="TaskViewController" customModule="minimal" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mrJ-9c-cnQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <textField key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter new task" textAlignment="natural" minimumFontSize="24" id="IZe-Mq-WhG">
+                            <rect key="frame" x="0.0" y="110.5" width="414" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="TbH-72-C58">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
@@ -119,6 +126,10 @@
                             <outlet property="delegate" destination="ibN-ph-vbW" id="omc-i5-Fiz"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="jZ5-HB-xO7"/>
+                    <connections>
+                        <outlet property="taskTextField" destination="IZe-Mq-WhG" id="NtQ-O0-0Vv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emB-mG-MYy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
